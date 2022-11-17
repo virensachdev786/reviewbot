@@ -1,3 +1,29 @@
+# Qucik setup
+
+>Navigate to where you want to setup the Project 
+
+git init
+
+git pull https://github.com/virensachdev786/reviewbot.git
+
+python -m django --version
+
+pip install django-allauth
+
+pip install django-allauth-ui
+
+pip install django-widget-tweaks
+
+pip install django-allauth-ui
+
+pip install django-widget-tweaks
+
+python manage.py migrate
+
+python manage.py runserver
+
+http://127.0.0.1:8000/accounts/login
+
 # Welcome to ReviewBot setup
 
 -  Basic Django Install
@@ -34,4 +60,3 @@
 
 ###  **__Additional videos sources__ **
 **https://www.youtube.com/watch?v=RyB_wdEZhOw
-
