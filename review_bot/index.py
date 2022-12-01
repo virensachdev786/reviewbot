@@ -9,3 +9,13 @@ def landing(request):
 
 def pricing(request):
     return render(request, 'pricing.html')
+
+def confirm(request):
+    return render(request, 'confirm.html')
+
+def existingbusinesses(request):
+    return render(request, 'existingbusinesses.html')
+
+def newbusiness(request):
+    return render(request, 'newbusiness.html')
+
