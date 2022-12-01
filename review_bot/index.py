@@ -19,3 +19,5 @@ def existingbusinesses(request):
 def newbusiness(request):
     return render(request, 'newbusiness.html')
 
+def test(request):
+    return render(request, 'test.html')

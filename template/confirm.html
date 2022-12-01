@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <!-- saved from url=(0049)https://getbootstrap.com/docs/4.0/examples/cover/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -10,10 +11,10 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
 
     <!-- Bootstrap core CSS -->
-    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="cover.css" rel="stylesheet">
+    <link href="{% static 'cover.css' %}" rel="stylesheet">
   </head>
 
   <body class="text-center">
@@ -31,7 +32,7 @@
       </header>
 
       <main role="main" class="inner cover">
-        <img class="d-block mx-auto mb-4" src="Reviewassist.png" alt="" width="80" height="72">
+        <img class="d-block mx-auto mb-4" src="{% static "Reviewassist.png" %}" alt="" width="80" height="72">
         <h1 class="cover-heading">You're all Set!</h1>
         <p class="lead">You'll get a cofirmation email shortly with your receipt and the next steps regarding the review prcess. Please allow about 24 hours for the process to initiate.  </p>
         <p class="lead">

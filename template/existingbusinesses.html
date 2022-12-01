@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <!-- saved from url=(0049)https://getbootstrap.com/docs/4.0/examples/album/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -9,10 +10,10 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/album/">
 
     <!-- Bootstrap core CSS -->
-    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="album.css" rel="stylesheet">
+    <link href="{% static 'album.css' %}" rel="stylesheet">
   </head>
 
   <body class="bg-dark">
@@ -40,7 +41,7 @@
     </header>
 
     <main role="main">
-      <img class="d-block mx-auto mb-4" src="Reviewassist.png" alt="" width="80" height="72">
+      <img class="d-block mx-auto mb-4" src="{% static "Reviewassist.png" %}" alt="" width="80" height="72">
 
       <section class="jumbotron text-center">
         <div class="container">
