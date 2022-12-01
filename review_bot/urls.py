@@ -23,4 +23,8 @@ urlpatterns = [
     path('accounts/profile/', index.landing),
     path('accounts/profile/pricing/', index.pricing),
     path('accounts/profile/checkout/', index.checkout),
+    path('accounts/profile/existingbusinesses/', index.existingbusinesses),
+    path('accounts/profile/newbusiness/', index.newbusiness),
+    path('accounts/profile/confirm/', index.confirm),
+
 ]
