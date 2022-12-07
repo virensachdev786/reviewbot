@@ -1,28 +1,28 @@
 # Qucik setup
 
->Navigate to where you want to setup the Project 
+>MAC specific: Navigate to where you want to setup the Project 
 
 git init
 
 git pull https://github.com/virensachdev786/reviewbot.git
 
-python -m django --version
+python3 -m django --version
 
-pip install django-allauth
+python3 -m pip install django-allauth
 
-pip install django-allauth-ui
+python3 -m pip install django-allauth-ui
 
-pip install django-widget-tweaks
+python3 -m pip install django-widget-tweaks
 
-pip install django-allauth-ui
+python3 -m pip install django-allauth-ui
 
-pip install django-widget-tweaks
+python3 -m pip install django-widget-tweaks
 
-python manage.py migrate
+python3 manage.py migrate
 
-python manage.py runserver
+python3 manage.py runserver
 
-http://127.0.0.1:8000/accounts/login
+open http://127.0.0.1:8000/accounts/login
 
 # Welcome to ReviewBot setup
 
