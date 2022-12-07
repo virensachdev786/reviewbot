@@ -20,6 +20,8 @@ python3 -m pip install django-widget-tweaks
 
 python3 manage.py migrate
 
+python3 manage.py collectstatic
+
 python3 manage.py runserver
 
 open http://127.0.0.1:8000/accounts/login
