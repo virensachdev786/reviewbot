@@ -132,59 +132,49 @@
               <hr class="my-4">
     
               <h4 class="mb-3">Payment</h4>
-    
-              <div class="my-3">
-                <div class="form-check">
-                  <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required="">
-                  <label class="form-check-label" for="credit">Credit card</label>
-                </div>
-                <div class="form-check">
-                  <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">
-                  <label class="form-check-label" for="debit">Debit card</label>
-                </div>
-                <div class="form-check">
-                  <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="">
-                  <label class="form-check-label" for="paypal">PayPal</label>
-                </div>
-              </div>
-    
-              <div class="row gy-3">
-                <div class="col-md-6">
-                  <label for="cc-name" class="form-label">Name on card</label>
-                  <input type="text" class="form-control" id="cc-name" placeholder="" required="">
-                  <small class="text-muted">Full name as displayed on card</small>
-                  <div class="invalid-feedback">
-                    Name on card is required
-                  </div>
-                </div>
-    
-                <div class="col-md-6">
-                  <label for="cc-number" class="form-label">Credit card number</label>
-                  <input type="text" class="form-control" id="cc-number" placeholder="" required="">
-                  <div class="invalid-feedback">
-                    Credit card number is required
-                  </div>
-                </div>
-    
-                <div class="col-md-3">
-                  <label for="cc-expiration" class="form-label">Expiration</label>
-                  <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
-                  <div class="invalid-feedback">
-                    Expiration date required
-                  </div>
-                </div>
-    
-                <div class="col-md-3">
-                  <label for="cc-cvv" class="form-label">CVV</label>
-                  <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
-                  <div class="invalid-feedback">
-                    Security code required
-                  </div>
-                </div>
-              </div>
-    
-              <hr class="my-4">
-             <a href="http://127.0.0.1:8000/accounts/profile/confirm"><button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button></a>
+      <!-- Set up a container element for the button -->
+      <div id="paypal-button-container"></div>
+
+      <!-- Include the PayPal JavaScript SDK -->
+      <script src="https://www.paypal.com/sdk/js?client-id=AVOdIY44YMgS8CrAioAVeI9bRwtRjaoOr3hbhLmy90PI47GfhxBbsflGshGJfxhHxsCs8QY38L1wZDIB&currency=USD"></script>
+  
+      <script>
+          // Render the PayPal button into #paypal-button-container
+          paypal.Buttons({
+  
+              // Set up the transaction
+              createOrder: function(data, actions) {
+                  return actions.order.create({
+                      purchase_units: [{
+                          amount: {
+                              value: '20.00'
+                          }
+                      }]
+                  });
+              },
+  
+              // Finalize the transaction
+              onApprove: function(data, actions) {
+                  return actions.order.capture().then(function(orderData) {
+                      // Successful capture! For demo purposes:
+                      console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                      var transaction = orderData.purchase_units[0].payments.captures[0];
+                      alert('Transaction '+ transaction.status + ': ' + transaction.id + '\n\nSee console for all available details');
+                      actions.redirect('http://127.0.0.1:8000/accounts/profile/confirm');
+                      // Replace the above to show a success message within this page, e.g.
+                      //const element = document.getElementById('paypal-button-container');
+                      //element.innerHTML = '';
+                      // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                      // Or go to another URL:  actions.redirect('thank_you.html');
+                  });
+              }
+  
+  
+          }).render('#paypal-button-container');
+      </script>
+
+
+
             </form>
           </div>
         </div>
